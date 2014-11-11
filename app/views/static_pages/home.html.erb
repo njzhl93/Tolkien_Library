@@ -1,3 +1,7 @@
 <% provide(:title, 'Home') %>
-<h1>Library of Middle Earth</h1>
-<p>Welcome to the libarary of Middle Earth</p>
+  <div class="center hero-unit">
+    <h1>Library of Middle Earth</h1>
+    <h2>Welcome to the libarary of Middle Earth</h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+  <%= link_to image_tag("JRRT.png", alt: "JRRT"), 'http://en.wikipedia.org/wiki/J._R._R._Tolkien', id: "ico" %>
