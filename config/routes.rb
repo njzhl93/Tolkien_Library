@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  #get 'users/new'
   resources :users
-<<<<<<< HEAD
   resources :sessions, only: [:new, :create, :destroy]
-=======
->>>>>>> e8607fcca4cac3e3e537e8be19d6f995334a18b3
+  resources :microposts, only: [:create, :destroy]
 
   root to: 'static_pages#home'
   match '/help',    to: 'static_pages#help' , via: 'get'
