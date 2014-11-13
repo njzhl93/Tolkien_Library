@@ -10,6 +10,7 @@ class UsersController < ApplicationController
                                   :password, :password_confirmation)
       @user = User.new(secure_params)
       if @user.save
+           sign_in @user
       	   flash[:success] = "Welcome to the the Library of Middle Earth!"
            redirect_to @user
       else
