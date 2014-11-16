@@ -1,0 +1,28 @@
+<h1>Listing Films</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Director</th>
+    <th>Date</th>
+    <th>Character</th>
+    <th>Content</th>
+    <th></th>
+  </tr>
+
+<% @films.each do |film| %>
+  <tr>
+    <td><%= film.title %></td>
+    <td><%= film.director %></td>
+    <td><%= film.date %></td>
+    <td><%= film.character %></td>
+    <td><%= film.content %></td>
+ 
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if signed_in? %>
+  <%= link_to 'New Film', new_film_path %>
+<% end %>

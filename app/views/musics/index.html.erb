@@ -1,0 +1,28 @@
+<h1>Listing Music</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Performer</th>
+    <th>Date</th>
+    <th>Publisher</th>
+    <th>Content</th>
+    <th></th>
+  </tr>
+
+<% @musics.each do |music| %>
+  <tr>
+    <td><%= music.title %></td>
+    <td><%= music.performer %></td>
+    <td><%= music.date %></td>
+    <td><%= music.publisher %></td>
+    <td><%= music.content %></td>
+ 
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if signed_in? %>
+  <%= link_to 'New Music', new_music_path %>
+<% end %>

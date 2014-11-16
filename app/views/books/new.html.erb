@@ -1,0 +1,25 @@
+<h1>New Book</h1>
+<div class="row">
+  <div class="span8 offset4">
+    <%= form_for(@book) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+
+    <%= f.label :writer %>
+    <%= f.text_field :writer %>
+
+    <%= f.label :publisher %>
+    <%= f.text_field :publisher %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content, size: '24x4' %>
+
+
+    <%= f.submit"Create ", class: "btn btn-large btn-primary"  %> 
+<% end %>
+  </div>
+</div>

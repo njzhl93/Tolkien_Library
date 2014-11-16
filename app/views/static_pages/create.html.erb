@@ -1,0 +1,9 @@
+<% provide(:title, 'Home') %>
+<% if signed_in? %>
+	<h1>You can create items here</h1>
+	<h2><%= link_to 'New Book', new_book_path %></h2>
+	<h2><%= link_to 'New Film', new_film_path %></h2>
+	<h2><%= link_to 'New Music', new_music_path %></h2>
+<% else %>
+    <h1>Please Sign in</h1>
+<% end %>
