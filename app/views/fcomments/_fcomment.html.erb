@@ -1,0 +1,20 @@
+<%= div_for fcomment do %>
+        <p>
+        	<strong>
+        	    <span class="user">
+        	    	<%= link_to fcomment.user.name, fcomment.user %>
+        	    </span>
+        	</strong>
+                
+                        Posted <%= time_ago_in_words(fcomment.created_at) %> ago
+                
+                <br/>
+                <%= fcomment.body %>
+                <br/>
+                <% if current_user?(fcomment.user) %>
+                <%= link_to "delete", [fcomment.film, fcomment], method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: fcomment.body %>
+      <% end %>
+        </p>
+<% end %>

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @book.date %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @book.content %>
+</p>
+
+<p>
+  <strong>Writer:</strong>
+  <%= @book.writer %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @book.publisher %>
+</p>
+
+<h2>Comments</h2>
+ <div id="bcomments">
+         <%= render :partial => @book.bcomments %>
+ </div>
+ <br/>
+
+
+<%= form_for [@book, Bcomment.new] do |f| %>
+        <p>
+                <%= f.label :body, "New comment" %><br/>
+                <%= f.text_area :body %>
+        </p>
+        <p><%= f.submit "Add comment" %></p>
+<% end %>
+
+<% if signed_in? %>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<% end %>
+<%= link_to 'Back', books_path %>

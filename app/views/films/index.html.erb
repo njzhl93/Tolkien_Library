@@ -1,28 +1,33 @@
-<h1>Listing Films</h1>
+<h1>Listing films</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Director</th>
-    <th>Date</th>
-    <th>Character</th>
-    <th>Content</th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Content</th>
+      <th>Director</th>
+      <th>Character</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<% @films.each do |film| %>
-  <tr>
-    <td><%= film.title %></td>
-    <td><%= film.director %></td>
-    <td><%= film.date %></td>
-    <td><%= film.character %></td>
-    <td><%= film.content %></td>
- 
-  </tr>
-<% end %>
+  <tbody>
+    <% @films.each do |film| %>
+      <tr>
+        <td><%= film.title %></td>
+        <td><%= film.date %></td>
+        <td><%= film.content %></td>
+        <td><%= film.director %></td>
+        <td><%= film.character %></td>
+        <td><%= link_to 'Show', film %></td>
+        <td><%= link_to 'Edit', edit_film_path(film) %></td>
+        <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-<% if signed_in? %>
-  <%= link_to 'New Film', new_film_path %>
-<% end %>
+<br>
+
+<%= link_to 'New Film', new_film_path %>

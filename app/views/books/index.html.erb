@@ -1,28 +1,35 @@
-<h1>Listing Books</h1>
+<h1>Listing books</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Writer</th>
-    <th>Date</th>
-    <th>Publisher</th>
-    <th>Content</th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Content</th>
+      <th>Writer</th>
+      <th>Publisher</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.writer %></td>
-    <td><%= book.date %></td>
-    <td><%= book.publisher %></td>
-    <td><%= book.content %></td>
- 
-  </tr>
-<% end %>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.date %></td>
+        <td><%= book.content %></td>
+        <td><%= book.writer %></td>
+        <td><%= book.publisher %></td>
+        <td><%= link_to 'Show', book %></td>
+        <% if signed_in? %>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-<% if signed_in? %>
-  <%= link_to 'New Book', new_book_path %>
-<% end %>
+<br>
+
+<%= link_to 'New Book', new_book_path %>

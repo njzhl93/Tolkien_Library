@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @music.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @music.date %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @music.content %>
+</p>
+
+<p>
+  <strong>Performer:</strong>
+  <%= @music.performer %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @music.publisher %>
+</p>
+
+<h2>Comments</h2>
+ <div id="mcomments">
+         <%= render :partial => @music.mcomments %>
+ </div>
+
+
+<%= form_for [@music, Mcomment.new] do |f| %>
+        <p>
+                <%= f.label :body, "New comment" %><br/>
+                <%= f.text_area :body %>
+        </p>
+        <p><%= f.submit "Add comment" %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_music_path(@music) %> |
+<%= link_to 'Back', musics_path %>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     has_many :microposts
     has_many :microposts, dependent: :destroy
+    has_many :comments
 	before_save do |user| 
             user.email = email.downcase 
             user.remember_token = SecureRandom.urlsafe_base64

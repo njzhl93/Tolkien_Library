@@ -1,0 +1,20 @@
+<%= div_for mcomment do %>
+        <p>
+        	<strong>
+        	    <span class="user">
+        	    	<%= link_to mcomment.user.name, mcomment.user %>
+        	    </span>
+        	</strong>
+                
+                        Posted <%= time_ago_in_words(mcomment.created_at) %> ago
+                
+                <br/>
+                <%= mcomment.body %>
+                <br/>
+                <% if current_user?(mcomment.user) %>
+                <%= link_to "delete", [mcomment.music, mcomment], method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: mcomment.body %>
+      <% end %>
+        </p>
+<% end %>

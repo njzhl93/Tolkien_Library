@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
 
 
+
+  resources :musics do
+    resources :mcomments
+  end
+
+  resources :books do
+    resources :bcomments
+  end
+
+  resources :films do
+    resources :fcomments
+  end
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
-  resources :books, only: [:new, :create, :index]
-  resources :musics, only: [:new, :create, :index]
-  resources :films, only: [:new, :create, :index]
   root to: 'static_pages#home'
   match '/help',    to: 'static_pages#help' , via: 'get'
   match '/about',   to: 'static_pages#about', via: 'get'
@@ -14,7 +24,7 @@ Rails.application.routes.draw do
   match '/signup',  to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/create',    to: 'static_pages#create' , via: 'get'
+  match '/create',  to: 'static_pages#create' , via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,21 @@
+<%= div_for bcomment do %>
+        <p>
+        	<strong>
+        	    <span class="user">
+        	    	<%= link_to bcomment.user.name, bcomment.user %>
+        	    </span>
+        	</strong>
+                
+                        Posted <%= time_ago_in_words(bcomment.created_at) %> ago
+                
+                <br/>
+                <%= bcomment.body %>
+                <br/>
+                <% if current_user?(bcomment.user) %>
+                <%= link_to "delete", [bcomment.book, bcomment], method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: bcomment.body %>
+      <% end %>
+        </p>
+        
+<% end %>

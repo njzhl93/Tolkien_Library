@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116142415) do
+ActiveRecord::Schema.define(version: 20141121173620) do
+
+  create_table "bcomments", force: true do |t|
+    t.integer  "book_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bcomments", ["book_id"], name: "index_bcomments_on_book_id"
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -23,6 +33,26 @@ ActiveRecord::Schema.define(version: 20141116142415) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", force: true do |t|
+    t.integer  "book_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["book_id"], name: "index_comments_on_book_id"
+
+  create_table "fcomments", force: true do |t|
+    t.integer  "film_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fcomments", ["film_id"], name: "index_fcomments_on_film_id"
+
   create_table "films", force: true do |t|
     t.string   "title"
     t.string   "date"
@@ -32,6 +62,16 @@ ActiveRecord::Schema.define(version: 20141116142415) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "mcomments", force: true do |t|
+    t.integer  "music_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mcomments", ["music_id"], name: "index_mcomments_on_music_id"
 
   create_table "microposts", force: true do |t|
     t.string   "content"
