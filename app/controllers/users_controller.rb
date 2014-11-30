@@ -12,9 +12,6 @@ class UsersController < ApplicationController
   def show
         @user = User.find(params[:id])
         @microposts = @user.microposts
-        @bcomments = @user.bcomments
-        @fcomments = @user.fcomments
-        @mcomments = @user.mcomments
   end
 
   def edit
@@ -42,6 +39,20 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private
