@@ -7,5 +7,6 @@ class CreateBcomments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :bcomments, [:user_id, :created_at]
   end
 end

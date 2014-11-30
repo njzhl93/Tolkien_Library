@@ -7,5 +7,6 @@ class CreateFcomments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :fcomments, [:user_id, :created_at]
   end
 end

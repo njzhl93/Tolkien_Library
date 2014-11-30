@@ -21,6 +21,7 @@ class BcommentsController < ApplicationController
         def bcomment_params
             params.require(:bcomment).permit(:book_id, :bcomment, :body, :user_id)
         end
+
         
 
 end
