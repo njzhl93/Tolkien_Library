@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20141130210547) do
     t.datetime "updated_at"
   end
 
-  add_index "bcomments", ["book_id"], name: "index_bcomments_on_book_id"
+  add_index "bcomments", ["book_id", "user_id", "created_at"], name: "index_bcomments_on_book_id_and_user_id_and_created_at"
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20141130210547) do
     t.datetime "updated_at"
   end
 
-  add_index "fcomments", ["film_id"], name: "index_fcomments_on_film_id"
+  add_index "fcomments", ["film_id", "user_id", "created_at"], name: "index_fcomments_on_film_id_and_user_id_and_created_at"
 
   create_table "films", force: true do |t|
     t.string   "title"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20141130210547) do
     t.datetime "updated_at"
   end
 
-  add_index "mcomments", ["music_id"], name: "index_mcomments_on_music_id"
+  add_index "mcomments", ["music_id", "user_id", "created_at"], name: "index_mcomments_on_music_id_and_user_id_and_created_at"
 
   create_table "microposts", force: true do |t|
     t.string   "content"

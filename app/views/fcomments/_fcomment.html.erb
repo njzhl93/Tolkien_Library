@@ -7,6 +7,13 @@
         	</strong>
                 
                         Posted <%= time_ago_in_words(fcomment.created_at) %> ago
+
+            <br/>
+            <strong>
+                <span class="title">
+                    <%= link_to fcomment.film.title, fcomment.film %>
+                </span>
+            </strong> 
                 
                 <br/>
                 <%= fcomment.body %>

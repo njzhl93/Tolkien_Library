@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
     has_many :reverse_relationships, foreign_key: "followed_id",
                                      class_name:  "Relationship",
                                      dependent:   :destroy
-   has_many :followers, through: :reverse_relationships, source: :follower
-    has_many :comments
+    has_many :followers, through: :reverse_relationships, source: :follower
+    has_many :bcomments ,dependent: :destroy
+    has_many :fcomments ,dependent: :destroy
+    has_many :mcomments ,dependent: :destroy
 	before_save do |user| 
             user.email = email.downcase 
             user.remember_token = SecureRandom.urlsafe_base64
@@ -21,6 +23,18 @@ class User < ActiveRecord::Base
     has_secure_password
     def feed
          Micropost.from_users_followed_by(self)
+    end
+
+    def bfeed
+        Bcomment.from_users_followed_by(self)
+    end
+
+    def ffeed
+        Fcomment.from_users_followed_by(self)
+    end
+
+    def mfeed
+        Mcomment.from_users_followed_by(self)
     end
 
     def following?(other_user)

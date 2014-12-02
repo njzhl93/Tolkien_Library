@@ -15,8 +15,15 @@
         <div class="span8">
               <h3>Micropost Feed</h3>
               <%= render 'shared/feed' %>
+              <h3>Book Comment Feed</h3>
+              <%= render 'bcomments/bfeed' %>
+              <h3>Film Comment Feed</h3>
+              <%= render 'fcomments/ffeed' %>
+              <h3>Music Comment Feed</h3>
+              <%= render 'mcomments/mfeed' %>
             </div>
       </div>  
+
     <% else %>
       <div class="center hero-unit">
         <h1>Library of Middle Earth</h1>

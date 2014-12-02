@@ -53,6 +53,7 @@ class FilmsController < ApplicationController
   private
     def set_film
       @film = Film.find(params[:id])
+      @film.fcomments.each {|c| puts c.film.title}
     end
 
   

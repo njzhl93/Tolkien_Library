@@ -53,6 +53,7 @@ before_action :set_book, only: [:show, :edit, :update, :destroy]
 
     def set_book
       @book = Book.find(params[:id])
+      @book.bcomments.each {|c| puts c.book.title}
     end
 
     def book_params

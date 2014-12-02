@@ -4,10 +4,16 @@
         	    <span class="user">
         	    	<%= link_to bcomment.user.name, bcomment.user %>
         	    </span>
+
         	</strong>
                 
                         Posted <%= time_ago_in_words(bcomment.created_at) %> ago
-                
+            <br/>
+            <strong>
+                <span class="title">
+                    <%= link_to bcomment.book.title, bcomment.book %>
+                </span>
+            </strong>    
                 <br/>
                 <%= bcomment.body %>
                 <br/>

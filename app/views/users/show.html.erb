@@ -20,4 +20,26 @@
           </ol>
         <% end %>
       </div>
+      <div class="span8">
+        <% if @user.bcomments.any? %>
+          <h3>Book comments (<%= @user.bcomments.count %>)</h3>
+          <ol class="bcomments">
+            <%= render @bcomments %>
+          </ol>
+        <% end %>
+        <% if @user.fcomments.any? %>
+          <h3>Film comments (<%= @user.fcomments.count %>)</h3>
+          <ol class="mcomments">
+            <%= render @fcomments %>
+          </ol>
+        <% end %>
+        <% if @user.mcomments.any? %>
+          <h3>Music comments (<%= @user.mcomments.count %>)</h3>
+          <ol class="mcomments">
+            <%= render @mcomments %>
+          </ol>
+        <% end %>
+      </div>
+
+
     </div> 

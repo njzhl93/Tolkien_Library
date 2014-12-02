@@ -52,6 +52,7 @@ class MusicsController < ApplicationController
   private
     def set_music
       @music = Music.find(params[:id])
+      @music.mcomments.each {|c| puts c.music.title}
     end
 
 

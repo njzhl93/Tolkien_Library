@@ -1,0 +1,16 @@
+<li id="<%= bfeed_item.id %>">
+  <%= link_to gravatar_for(bfeed_item.user), bfeed_item.user %>
+  <span class="user">
+    <%= link_to bfeed_item.user.name, bfeed_item.user %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(bfeed_item.created_at) %> ago.
+  </span>
+</br>
+  <span class="title">
+    <%= link_to bfeed_item.book.title, bfeed_item.book %>
+  </span>
+</br>
+  <span class="body"><%= bfeed_item.body %></span>
+
+</li>

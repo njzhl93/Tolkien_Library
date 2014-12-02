@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   def show
         @user = User.find(params[:id])
         @microposts = @user.microposts
+        @bcomments = @user.bcomments
+        @fcomments = @user.fcomments
+        @mcomments = @user.mcomments
   end
 
   def edit

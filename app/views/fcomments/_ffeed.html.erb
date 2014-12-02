@@ -1,0 +1,6 @@
+<% if @ffeed_items.any? %>
+  <ol class="fcomments">
+    <%= render partial: 'fcomments/ffeed_item', collection: @ffeed_items %>
+  </ol>
+  <%= will_paginate @ffeed_items %>
+<% end %>

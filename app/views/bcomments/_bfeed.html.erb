@@ -1,0 +1,6 @@
+<% if @bfeed_items.any? %>
+  <ol class="bcomments">
+    <%= render partial: 'bcomments/bfeed_item', collection: @bfeed_items %>
+  </ol>
+  <%= will_paginate @bfeed_items %>
+<% end %>

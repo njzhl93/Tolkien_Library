@@ -1,12 +1,12 @@
 class CreateFcomments < ActiveRecord::Migration
   def change
     create_table :fcomments do |t|
-      t.references :film, index: true
+      t.integer :film_id
       t.text :body
       t.integer :user_id
 
       t.timestamps
     end
-    add_index :fcomments, [:user_id, :created_at]
+    add_index :fcomments, [:film_id, :user_id, :created_at]
   end
 end
